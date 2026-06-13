@@ -16,18 +16,24 @@
 * limitations under the License.
 */
 
-import dtypes = require( './index' );
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { SignedIntegerDataType as DataType } from '@stdlib/types/array';
+
+/**
+* Returns a list of typed array signed integer data types.
+*
+* @returns list of typed array signed integer data types
+*
+* @example
+* var list = dtypes();
+* // e.g., returns [ 'int16', ... ]
+*/
+declare function dtypes(): Array<DataType>;
 
 
-// TESTS //
+// EXPORTS //
 
-// The function returns a string array..
-{
-	dtypes(); // $ExpectType SignedIntegerDataType[]
-}
-
-// The compiler throws an error if the function is provided arguments...
-{
-	dtypes( 1 ); // $ExpectError
-	dtypes( 1, 2 ); // $ExpectError
-}
+export = dtypes;
